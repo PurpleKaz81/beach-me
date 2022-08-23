@@ -32,12 +32,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path, status: :see_other, notice: 'Product was successfully destroyed.'
   end
-end
 
-private
+  private
 
-def strong_params
-  params.require(:product).permit(:name, :description, :price)
+  def strong_params
+    params.require(:product).permit(:name, :description, :price)
+  end
 end
