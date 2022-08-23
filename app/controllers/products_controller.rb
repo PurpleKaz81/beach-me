@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params)
+    @product = Product.new(strong_params)
+    @product.user = current_user
     if @product.save
       redirect_to @product, notice: "Product created successfully."
     else
@@ -26,7 +27,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(params)
+    @product.update(strong_params)
     redirect_to @products
   end
 
@@ -37,6 +38,6 @@ end
 
 private
 
-def params
-  params.require(:product).permit(:name, :description, :price, :user_id)
+def strong_params
+  params.require(:product).permit(:name, :description, :price)
 end
