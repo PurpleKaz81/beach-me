@@ -36,5 +36,5 @@ end
 private
 
 def params
-  params.require(:product).permit(:name, :description, :price, :available?)
+  params.require(:product).permit(:name, :description, :price, :user_id)
 end
