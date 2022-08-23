@@ -1,1 +1,9 @@
-<h1>Index</h1>
+<h1>All Products</h1>
+
+<ul>
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, products_path %>
+    <%= product.description %>
+    <%= product.price %></li>
+  <% end %>
+</ul>
