@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :products do
     resources :rents, only: %i[index new create]
   end
+  resources :products, only: :destroy
 end
