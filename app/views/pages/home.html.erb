@@ -1,28 +1,25 @@
 <div class="container">
   <div class="text-center mt-5 mb-5">
     <h1>Welcome to Beach Me</h1>
+    <%= link_to "Insert Product", new_product_path, class: "btn btn-primary" if current_user %>
   </div>
 
-<div class="card-product" style="width: 18rem;">
-  <div class="card mb-3">
-    <img class="card-img-top" src="/home/suzane/code/suzaneandrade100/beach-me/app/assets/images/guarda-sol.jp"
-    alt="Imagem de capa do card">
-    <div class="card-body">
-      <h2 class="card-title">Título especial</h2>
-      <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
-      <a href="#" class="btn btn-primary">Visitar</a>
-    </div>
-  </div>
-</div>
-
-  <ul>
+  <div class="row">
     <% @products.each do |product| %>
-      <li><%= link_to product.name, product %>
-      <%= product.description %>
-      <%= product.price %></li>
+      <div class="col-4">
+        <%= link_to product, class: "text-decoration-none" do %>
+          <div class="card mb-4">
+            <%= image_tag "guarda-sol.jpg", class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= "#{product.description[0..100]}..." %></p>
+              <p class="card-text text-end"><%= number_to_currency(product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
 
-
+  </div>
 
 </div>
