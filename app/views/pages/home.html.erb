@@ -1,4 +1,28 @@
 <div class="container">
-    <h1>Pages#home</h1>
-    <p>Find me in app/views/pages/home.html.erb</p>
+  <div class="text-center mt-5 mb-5">
+    <h1>Welcome to Beach Me</h1>
+  </div>
+
+<div class="card-product" style="width: 18rem;">
+  <div class="card mb-3">
+    <img class="card-img-top" src="/home/suzane/code/suzaneandrade100/beach-me/app/assets/images/guarda-sol.jp"
+    alt="Imagem de capa do card">
+    <div class="card-body">
+      <h2 class="card-title">Título especial</h2>
+      <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+      <a href="#" class="btn btn-primary">Visitar</a>
+    </div>
+  </div>
+</div>
+
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product %>
+      <%= product.description %>
+      <%= product.price %></li>
+    <% end %>
+  </ul>
+
+
+
 </div>
