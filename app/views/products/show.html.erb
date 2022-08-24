@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mt-5">
     <div class="text-center justify-content mt-5 col-12 col-lg-8">
       <h1><strong>Show Product</strong></h1>
 
@@ -8,10 +8,11 @@
       <p>Price: <%= @product.price %></p>
 
       <div class="d-flex mb-2 justify-content-center">
-      <% if user_signed_in? %>
-        <%= link_to "Edit Your Product", edit_product_path, class: "btn btn-primary" %>
-        <%= link_to "Delete This Product", @product, class: "btn btn-danger ms-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this product?" } %>
-      <% end %>
+        <% if user_signed_in? %>
+
+          <%= link_to "Edit Your Product", edit_product_path, class: "btn btn-primary" %>
+          <%= link_to "Delete This Product", @product, class: "btn btn-danger ms-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this product?" } %>
+        <% end %>
       </div>
 
       <div class="d-flex mb-2 justify-content-center">
@@ -21,7 +22,7 @@
             <%= f.submit "Rent", class: "btn btn-primary ms-2" %>
           <% end %>
         <% else %>
-          <h2>Product Unavailable</h2>
+          <h4 class="ms-2">Product Unavailable</h4>
         <% end %>
       </div>
     </div>
