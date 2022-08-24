@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @rent = Rent.new
   end
 
   def new
@@ -35,6 +36,18 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path, status: :see_other, notice: 'Product was successfully destroyed.'
+  end
+
+  def rented
+    @products = Product.joins(:rents).where(rents: { user: current_user })
+
+    # @products = current_user.rents.map { |rent| rent.product }
+
+    # @products = current_user.rents.map(&:product)
+  end
+
+  def mine
+    @products = current_user.products
   end
 
   private
