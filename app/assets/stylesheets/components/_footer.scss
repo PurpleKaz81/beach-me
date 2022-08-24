@@ -5,7 +5,7 @@ footer {
 }
 
 .footer {
-  background: linear-gradient(#84a9af, #1a748e,);
+  background: linear-gradient(#fff, #63b0c7, #24a4c9);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,14 +18,15 @@ footer {
   align-items: center;
 }
 .footer-links a {
-  color: black;
-  opacity: 0.15;
+  color: #fff;
+  // opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  opacity: 0;
+
 }
 .footer .fa-heart {
   color: #D23333;
