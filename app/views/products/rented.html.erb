@@ -1,9 +1,14 @@
-<h1>My Rented Products</h1>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <h1 class="text-center mb-5"><strong>My Rented Products</strong></h1>
 
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.name, product %>
-    <%= product.description %>
-    <%= product.price %></li>
-  <% end %>
-</ul>
+    <ul>
+      <% @products.each do |product| %>
+        <li><%= link_to product.name, product %>
+        <%= product.description %>
+        <%= product.price %></li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
