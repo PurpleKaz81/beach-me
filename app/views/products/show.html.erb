@@ -6,7 +6,7 @@
     <p>Description: <%= @product.description %></p>
     <p>Price: <%= @product.price %></p>
   </div>
-  <div class="text-center justify-content>
+  <div class="text-center justify-content">
     <%= link_to "Rent", "https://blog.vindi.com.br/wp-content/uploads/2020/11/image-18-1024x463.png", :target => "_blank", class: "btn btn-primary" %>
     <%= link_to "Edit Your Product", edit_product_path, class: "btn btn-primary" %>
     <%= link_to "Delete This Product", @product, class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this product?" } %>
