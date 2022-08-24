@@ -1,13 +1,32 @@
 <div class="container text-center">
   <h1><strong>All Products</strong></h1>
 
-  <ul>
+  <%# <ul>
     <% @products.each do |product| %>
-      <li><%= link_to product.name, product %>
-      <%= product.description %>
-      <%= product.price %></li>
-    <% end %>
-  </ul>
+      <%# <li><%= link_to product.name, product %>
+      <%# <%= product.description %>
+      <%# <%= product.price %></li>
+    <%# <% end %>
+  <%# </ul>
 
   <%= link_to "Insert Product", new_product_path, class: "btn btn-primary" %>
+<%# </div> %>
+
+ <div class="row mt-5">
+
+    <% @products.each do |product| %>
+      <div class="col-4">
+        <%= link_to product, class: "text-decoration-none" do %>
+          <div class="card mb-4">
+            <%= image_tag "guarda-sol.jpg", class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= "#{product.description[0..100]}..." %></p>
+              <p class="card-text text-end"><%= number_to_currency(product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
