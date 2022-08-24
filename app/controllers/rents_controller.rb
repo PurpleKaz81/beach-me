@@ -17,6 +17,6 @@ class RentsController < ApplicationController
     @rent.user = current_user
     @rent.product = @product
     @rent.save!
-    redirect_to product_path(@product)
+    redirect_to mine_products_path
   end
 end
