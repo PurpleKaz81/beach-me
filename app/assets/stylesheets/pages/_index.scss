@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
