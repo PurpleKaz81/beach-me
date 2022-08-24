@@ -11,10 +11,12 @@ class RentsController < ApplicationController
   #   @rent = Rent.find(params[:id])
   # end
 
-  # def create
-  #   @rent = Rent.new(params[:rent])
-  #   @rent.user_id = current_user.id
-  #   @rent.save
-  #   redirect_to rents_path
-  # end
+  def create
+    @product = Product.find(params[:product_id])
+    @rent = Rent.new
+    @rent.user = current_user
+    @rent.product = @product
+    @rent.save!
+    redirect_to product_path(@product)
+  end
 end
