@@ -16,16 +16,16 @@ class RentsController < ApplicationController
     @rent = Rent.new(rent_params)
     @rent.user = current_user
     @rent.product = @product
-    if @product.quantity >= @rent.quantity
+    if @rent.quantity && @product.quantity >= @rent.quantity
       if @rent.save
         @product.quantity -= @rent.quantity
         @product.save
         redirect_to rented_products_path
       else
-        render product_path(@product), status: :unprocessable_entity
+        redirect_to product_path(@product), alert: "Please fill in all fields."
       end
     else
-      redirect_to @product, notice: "Product not available for rent."
+      redirect_to @product, alert: "Product not available for rent."
     end
   end
 
