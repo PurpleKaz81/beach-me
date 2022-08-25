@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <%= favicon_link_tag asset_path('beachlogo.png') %>
 
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -15,8 +16,7 @@
     <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
       <%= render "shared/navbar" %>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    
     <%= yield %>
     <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
       <%= render "shared/footer" %>

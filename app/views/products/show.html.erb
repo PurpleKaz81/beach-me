@@ -19,7 +19,9 @@
       </div>
 
       <div class="d-flex mb-2 justify-content-center">
-        <%= link_to "Back to Products", root_path, class: "btn btn-primary" %>
+
+        <%= link_to "Back to Products", root_path, class: "btn btn-primary btn-form" %>
+
         <% if @product.quantity.positive? && user_signed_in? %>
           <%= simple_form_for [@product, @rent] do |f| %>
             <%= f.input :quantity, class: "form-control form-inline" %>
