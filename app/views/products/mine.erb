@@ -1,0 +1,9 @@
+<h1 class="text-center mt-5"><strong>My Products</strong></h1>
+
+<ul>
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, product %>
+    <%= product.description %>
+    <%= product.price %></li>
+  <% end %>
+</ul>
