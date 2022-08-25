@@ -4,15 +4,16 @@
 
   <div class="row">
 
-      <% @products.each do |product| %>
+      <% @rents.each do |rent| %>
         <div class="col-6">
-          <%= link_to product, class: "text-decoration-none" do %>
+          <%= link_to rent.product, class: "text-decoration-none" do %>
             <div class="card m-auto mb-5"  style="width: 28rem;">
               <%= image_tag "guarda-sol.jpg", class: "card-img-top" %>
               <div class="card-body">
-                <h5 class="card-title"><strong><%= product.name %></strong></h5>
-                <%# <p class="card-text"><%= "#{product.description[0..100]}..." %></p>
-                <p class="card-text text-end"><%= number_to_currency(product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
+                <h5 class="card-title"><strong><%= rent.product.name %></strong></h5>
+                <p class="card-text"><%= "#{rent.product.description[0..100]}..." %></p>
+                <p><%= rent.rent_date.strftime("%a, %d %b., %Y") %></p>
+                <p class="card-text text-end"><%= number_to_currency(rent.product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
               </div>
             </div>
           <% end %>
