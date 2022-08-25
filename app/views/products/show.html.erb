@@ -23,6 +23,8 @@
         <% if @product.quantity.positive? && user_signed_in? %>
           <%= simple_form_for [@product, @rent] do |f| %>
             <%= f.input :quantity, class: "form-control form-inline" %>
+            <%= f.input :rent_date, as: :string, class: "form-control form-inline", input_html: { type: "date", min: Date.today } %>
+            <%= f.input :return_date, as: :string, class: "form-control form-inline", input_html: { type: "date", min: Date.today } %>
             <%= f.submit "Rent", class: "btn btn-primary ms-2" %>
          <% end %>
         <% elsif @product.quantity.positive? %>
