@@ -41,7 +41,9 @@ class ProductsController < ApplicationController
   end
 
   def rented
-    @products = Product.joins(:rents).where(rents: { user: current_user })
+    @rents = Rent.includes(:product).where(user: current_user)
+
+    # @products = Product.joins(:rents).where(rents: { user: current_user })
 
     # @products = current_user.rents.map { |rent| rent.product }
 
