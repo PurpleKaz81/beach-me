@@ -1,11 +1,19 @@
 h1 {
   color: #24a4c9;
   // font-family: ;
-  text-shadow: 0.1em 0.1em 0.05em rgb(224, 221, 221);
+  // text-shadow: 0.1em 0.1em 0.05em rgb(224, 221, 221);
  }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+// body {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+// }
+
+.home-bg {
+  // background: image-url('backgroung-img.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  // height: 100vh;
+  // width: 100vw;
 }
