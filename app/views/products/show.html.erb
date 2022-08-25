@@ -6,6 +6,7 @@
       <p>Name: <%= @product.name %></p>
       <p>Description: <%= @product.description %></p>
       <p>Price: <%= @product.price %></p>
+      <p>Quantity: <%= @product.quantity %></p>
 
       <div class="d-flex mb-2 justify-content-center">
         <% if user_signed_in? %>
@@ -17,10 +18,12 @@
 
       <div class="d-flex mb-2 justify-content-center">
         <%= link_to "Back to Products", products_path, class: "btn btn-primary" %>
-        <% if @product.rents.count.zero? %>
+        <% if @product.rents.count.zero? && user_signed_in? %>
           <%= simple_form_for [@product, @rent] do |f| %>
             <%= f.submit "Rent", class: "btn btn-primary ms-2" %>
-          <% end %>
+         <% end %>
+        <% elsif @product.rents.count.zero? %>
+          <%= link_to "Rent", new_user_session_path, class: "btn btn-primary" %>
         <% else %>
           <h4 class="ms-2">Product Unavailable</h4>
         <% end %>
