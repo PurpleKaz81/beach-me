@@ -1,17 +1,17 @@
 <div class="container">
 
-<h1 class="text-center mt-5 mb-5"><strong>My Rented Products</strong></h1>
+<h1 class="text-center mt-5 mb-5"><strong>My Rented Products:</strong></h1>
 
   <div class="row">
 
       <% @products.each do |product| %>
-        <div class="col-4">
+        <div class="col-6">
           <%= link_to product, class: "text-decoration-none" do %>
-            <div class="card mb-4">
+            <div class="card m-auto mb-5"  style="width: 30rem;">
               <%= image_tag "guarda-sol.jpg", class: "card-img-top" %>
               <div class="card-body">
                 <h5 class="card-title"><%= product.name %></h5>
-                <p class="card-text"><%= "#{product.description[0..100]}..." %></p>
+                <%# <p class="card-text"><%= "#{product.description[0..100]}..." %></p>
                 <p class="card-text text-end"><%= number_to_currency(product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
               </div>
             </div>
