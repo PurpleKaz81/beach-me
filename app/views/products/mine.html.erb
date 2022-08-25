@@ -1,17 +1,17 @@
 <div class="container">
 
-<h1 class="text-center mt-5 mb-5"><strong>My Products:</strong></h1>
+<h1 class="text-center mt-5 mb-5"><strong>My Available products</strong></h1>
 
   <div class="row">
 
       <% @products.each do |product| %>
-        <div class="col-6">
+        <div class="col-4">
           <%= link_to product, class: "text-decoration-none" do %>
-            <div class="card m-auto mb-5"  style="width: 28rem;">
+            <div class="card m-auto mb-5"  style="width: 18rem;">
               <%= image_tag "guarda-sol.jpg", class: "card-img-top" %>
               <div class="card-body">
                 <h5 class="card-title"><strong><%= product.name %></strong></h5>
-                <p class="card-text"><%= "#{product.description[0..100]}..." %></p>
+
                 <% if product.rents.any? && user_signed_in? %>
                   <p>Rent Date: <%= product.rents.last.rent_date.strftime("%a, %d %b., %Y") if product.rents.any? %></p>
                   <p>Return Date: <%= product.rents.last.return_date.strftime("%a, %d %b., %Y") if product.rents.any? %></p>
