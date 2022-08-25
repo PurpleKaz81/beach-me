@@ -6,7 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+User.destroy_all
 Product.destroy_all
+
+puts "Generating user"
+
+user = User.new(first_name: "teste", last_name: "teste", email: "teste@teste.com", password: "123123")
 
 puts 'Generating ten products'
 
@@ -15,7 +20,8 @@ puts 'Generating ten products'
     name: Faker::Restaurant.name,
     description: Faker::Restaurant.description,
     price: Faker::Number.decimal(l_digits: 2),
-    user_id: 1
+    quantity: rand(1..10),
+    user: user
   )
   product.save!
 end
