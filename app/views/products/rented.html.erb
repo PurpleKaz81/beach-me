@@ -16,7 +16,7 @@
                 <p>Rent Date: <%= rent.rent_date.strftime("%a, %d %b., %Y") %></p>
                 <p>Return Date: <%= rent.return_date.strftime("%a, %d %b., %Y") %></p>
                 <p class="card-text text-end"><%= number_to_currency(rent.product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
-                
+
               </div>
             </div>
           <% end %>
