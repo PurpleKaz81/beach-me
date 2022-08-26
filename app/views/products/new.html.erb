@@ -1,13 +1,15 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-8">
-      <h1 class="mt-3">New</h1>
-      <%= render "form", product: @product %>
+<div class="home-bg" style="background-image: url(<%= asset_path('background-img.jpg') %>)">
+<div class="row justify-content-center">
+  <div class="col-sm-6 mt-3">
+    <h1><strong>Add a New Product</strong></h1>
 
-      <div>
-        <%= link_to "Back to Products", root_path, class: "btn btn-primary mt-3 mb-3" %>
-      </div>
 
+    <%= render "form", product: @product %>
+
+    <div>
+      <%= link_to "Back to Products", root_path, class: "btn btn-primary btn-form mb-3" %>
     </div>
+
   </div>
+</div>
 </div>
