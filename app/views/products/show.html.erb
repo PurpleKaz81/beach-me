@@ -1,13 +1,13 @@
 <div class="container">
 
   <div class="row justify-content-center mt-3">
-    <div class="text-center justify-content mt-3 col-sm-4">
 
-      <div class="mt-4 mb-4">
-        <h1><strong><%= @product.name %></strong></h1>
+    <div class="text-center justify-content mt-3 col-sm-6">
+       <div class="mt-4 mb-4">
+        <h1><strong> <%= @product.name %></strong></h1>
         <p><%= @product.description %></p>
-        <h3>Price: U$ <%= @product.price %></h3>
-        <h3>Quantity: <%= @product.quantity %></h3>
+        <h5>Price: R$<%= @product.price %></h5>
+        <h5>Quantity: <%= @product.quantity %></h5>
       </div>
 
       <div class="d-flex mb-2 justify-content-center">
