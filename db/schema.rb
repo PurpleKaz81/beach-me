@@ -32,7 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_26_170201) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity"
-    t.date "date"
     t.date "rent_date"
     t.date "return_date"
     t.index ["product_id"], name: "index_rents_on_product_id"
