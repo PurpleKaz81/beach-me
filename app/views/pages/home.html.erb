@@ -12,10 +12,10 @@
       <% @products.each do |product| %>
         <div class="col-4">
           <%= link_to product, class: "text-decoration-none" do %>
-            <div class="card mb-5 ms-5" style="width: 18rem;">
-              <%= image_tag "cadeira.jpg", class: "card-img-top" %>
-              <div class="card-body">
-                <h5 class="card-title"><strong><%= product.name %></strong></h5>
+            <div class="card mb-5 ms-5 " style="width: 18rem;">
+              <%= image_tag product.image_url, class: "card-img-top border border-dark card-image-set-height" %>
+              <div class="card-body border border-dark border-top-0" style="background-color:rgb(229, 228, 226); height: 200px">
+                <h5 class="card-title "><strong><%= product.name %></strong></h5>
                 <p class="card-text"><%= "#{product.description[0..100]}..." %></p>
                 <p class="card-text text-end"><%= number_to_currency(product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
               </div>
@@ -23,7 +23,6 @@
           <% end %>
         </div>
       <% end %>
-
     </div>
 
   </div>
