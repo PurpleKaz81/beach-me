@@ -16,8 +16,9 @@
     <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
       <%= render "shared/navbar" %>
     <% end %>
-    
     <%= yield %>
+      <p class="notice m-0"><%= notice %></p>
+      <p class="alert m-0"><%= alert %></p>
     <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
       <%= render "shared/footer" %>
     <% end %>

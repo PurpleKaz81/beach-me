@@ -40,8 +40,12 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
+   if @product.rents.present?
+    redirect_to mine_products_path, alert: "Product Unavailable." 
+   else
     @product.destroy
-    redirect_to products_path, status: :see_other, notice: 'Product was successfully destroyed.'
+    redirect_to root_path, status: :see_other, notice: 'Product was successfully destroyed.'
+   end
   end
 
   def rented
