@@ -2,19 +2,19 @@
       <div class="wrapper">
            <h1 class="typing-demo text-center mt-5 mb-5"><strong>My Available Products</strong></h1>
       </div>
-  <div class="row">
+
+<div class="row">
 
       <% @products.each do |product| %>
         <div class="col-4">
           <%= link_to product, class: "text-decoration-none" do %>
-            <div class="card m-auto mb-5"  style="width: 18rem;">
-              <%= image_tag "cadeira.jpg", class: "card-img-top" %>
-              <div class="card-body">
-                <h5 class="card-title"><strong><%= product.name %></strong></h5>
-
-                <% if product.rents.any? && user_signed_in? %>
-                  <p>Rent Date: <%= product.rents.last.rent_date.strftime("%a, %d %b., %Y") if product.rents.any? %></p>
-                  <p>Return Date: <%= product.rents.last.return_date.strftime("%a, %d %b., %Y") if product.rents.any? %></p>
+            <div class="card mb-5 ms-5 " style="width: 18rem;">
+              <%= image_tag product.image_url, class: "card-img-top border border-dark card-image-set-height" %>
+              <div class="card-body border border-dark border-top-0" style="background-color:rgb(229, 228, 226); height: 150px">
+                <h5 class="card-title "><strong><%= product.name %></strong></h5>
+                  <% if product.rents.any? && user_signed_in? %>
+                    <p>Rent Date: <%= product.rents.last.rent_date.strftime("%a, %d %b., %Y") if product.rents.any? %></p>
+                    <p>Return Date: <%= product.rents.last.return_date.strftime("%a, %d %b., %Y") if product.rents.any? %></p>
                   <% end %>
                 <p class="card-text text-end"><%= number_to_currency(product.price, unit: "R$ ", separator: ",", delimiter: "") %></p>
               </div>
@@ -22,6 +22,5 @@
           <% end %>
         </div>
       <% end %>
-
-  </div>
+    </div>
 </div>
