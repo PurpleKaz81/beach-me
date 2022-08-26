@@ -21,21 +21,30 @@
 
       <div class="d-flex mb-2 justify-content-center">
 
-        <%= link_to "Back to Products", root_path, class: "btn btn-primary btn-form" %>
+
 
         <% if @product.quantity.positive? && user_signed_in? %>
           <%= simple_form_for [@product, @rent] do |f| %>
-            <%= f.input :quantity, class: "form-control form-inline" %>
-            <%= f.input :rent_date, as: :string, class: "form-control form-inline", input_html: { type: "date", min: Date.today } %>
-            <%= f.input :return_date, as: :string, class: "form-control form-inline", input_html: { type: "date", min: Date.today } %>
-            <%= f.submit "Rent", class: "btn btn-primary ms-2" %>
+              <%= f.input :quantity, class: "form-control form-inline" %>
+            <div class="d-flex">
+
+              <%= f.input :rent_date, as: :string, class: "form-control form-inline", input_html: { type: "date", min: Date.today } %>
+              <%= f.input :return_date, as: :string, class: "form-control form-inline", input_html: { type: "date", min: Date.today } %>
+            </div>
+
+            <%= f.submit "Rent", class: "btn btn-primary ms-2 mt-3" %>
          <% end %>
         <% elsif @product.quantity.positive? %>
-          <%= link_to "Rent", new_user_session_path, class: "btn btn-primary" %>
+          <%= link_to "Rent", new_user_session_path, class: "btn btn-secondary" %>
+
         <% else %>
           <h4 class="ms-2">Product Unavailable</h4>
         <% end %>
+
+
       </div>
+        <%= link_to "Back to Products", root_path, class: "btn btn-secondary btn-form" %>
+
     </div>
 
   </div>
